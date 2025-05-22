@@ -7,6 +7,7 @@ namespace SAE_Reseau
         public FormCalcul()
         {
             InitializeComponent();
+            lblError.Text = string.Empty;
         }
 
         /// <summary>
@@ -115,9 +116,11 @@ namespace SAE_Reseau
             try
             { 
                 txtOutput.Text = ComputeHeaderChecksum(txtInput.Text);
+                lblError.Text = string.Empty;
             }
             catch (Exception ex)
             {
+                txtOutput.Text = string.Empty;
                 lblError.Text = ex.Message;
             }
         }
